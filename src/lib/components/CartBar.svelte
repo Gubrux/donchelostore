@@ -52,19 +52,19 @@
 let total: number = cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
 </script>
 
-<p class="text-center">There are {cart.length} items in your cart</p>
 <div class="grid grid-cols-3 gap-4">
 	{#each products as product}
 	<div class="border p-4">
-	<div class="h-32 bg-center bg-no-repeat bg-contain" style="background-image: url({product.imagen})"></div>
-	<h4 class="text-xl font-bold">{product.nombre}</h4>
-	<p class="text-lg">${product.precio}</p>
-	<button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded" on:click={() => anhadirAlcarrito(product)}>Add to cart</button>
+		<div class="h-32 bg-center bg-no-repeat bg-contain" style="background-image: url({product.imagen})"></div>
+		<h4 class="text-xl font-bold">{product.nombre}</h4>
+		<p class="text-lg">${product.precio}</p>
+		<button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded" on:click={() => anhadirAlcarrito(product)}>Add to cart</button>
 	</div>
 	{/each}
 </div>
 
 <div class="border p-4 mt-4">
+	<p class="text-center">Tienes {cart.length} tipo/s de producto/s en tu carrito</p>
 	{#each cart as item }
 	{#if item.cantidad > 0}
 	<div class="flex items-center justify-between mb-2">
@@ -80,6 +80,7 @@ let total: number = cart.reduce((sum, item) => sum + item.precio * item.cantidad
 	{/each}
 	<div class="text-right">
 	<h4 class="text-2xl font-bold">Total: $ {total}</h4>
+	<button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded">limpiar carrito</button>
 	</div>
 	</div>
 	
