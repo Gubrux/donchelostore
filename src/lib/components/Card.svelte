@@ -10,7 +10,7 @@
 	// Array de imágenes con URL, descripción y precio
 	const imageUrl = 'https://source.unsplash.com/random/200x200?sig=incrementingIdentifier';
 	let arrayImgRandom: ImageData[] = [];
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < 3; i++) {
 		arrayImgRandom.push({
 			url: imageUrl,
 			descripcion: `Producto ${i + 1}`,
@@ -19,16 +19,17 @@
 	}
 </script>
 
-<!-- Creamos la cardcita :)) -->
 <div class="container mx-auto p-8">
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-		{#each arrayImgRandom as img (img.url)}
-			<div class="bg-white rounded-lg shadow-md p-4">
-				<img src={img.url} alt={img.descripcion} class="w-full h-40 object-cover mb-4" />
-				<p class="text-gray-700 font-semibold">{img.descripcion}</p>
-				<p class="text-gray-600">Precio: ${img.precio}</p>
-				<button class="bg-red-300 rounded-md p-2">Agregar al carrito</button>
-			</div>
-		{/each}
-	</div>
+    <div class="flex flex-wrap -mx-4">
+        {#each arrayImgRandom as img (img.url)}
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-4">
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+                    <img src={img.url} alt={img.descripcion} class="w-full h-40 object-cover mb-4" />
+                    <p class="text-gray-700 font-semibold text-center">{img.descripcion}</p>
+                    <p class="text-gray-600 text-center">Precio: ${img.precio}</p>
+                    <button class="bg-red-300 rounded-md p-2">Agregar al carrito</button>
+                </div>
+            </div>
+        {/each}
+    </div>
 </div>
